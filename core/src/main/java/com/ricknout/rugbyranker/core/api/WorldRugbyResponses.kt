@@ -67,7 +67,7 @@ data class WorldRugbyMatchesResponse(
     val content: List<Match>
 )
 
-data class TeamDetail(
+data class TeamSummary(
     val id: Long,
     val country: String,
     val naming: Naming
@@ -79,7 +79,7 @@ data class Naming(
 )
 
 data class WorldRugbyTeamsResponse(
-    val teams: List<TeamDetail>
+    val teams: List<TeamSummary>
 )
 
 data class Article(
@@ -99,4 +99,89 @@ data class Article(
 data class WorldRugbyArticlesResponse(
     val pageInfo: PageInfo,
     val content: List<Article>
+)
+
+data class Time(
+    val secs: Int,
+    val label: String
+)
+
+data class TimelineEvent(
+    val phase: String,
+    val time: Time,
+    val type: String,
+    val typeLabel: String,
+    val group: String,
+    val points: Int,
+    val playerId: Long,
+    val teamIndex: Int
+)
+
+data class WorldRugbyMatchTimelineResponse(
+    val match: Match,
+    val timeline: List<TimelineEvent>
+)
+
+data class Name(
+    val known: String?,
+    val official: String
+)
+
+data class NameDetail(
+    val initials: String,
+    val first: Name,
+    val last: Name,
+    val display: String
+)
+
+data class Player(
+    val id: Long,
+    val name: NameDetail
+)
+
+data class PlayerDetail(
+    val player: Player,
+    val number: String,
+    val position: String,
+    val positionLabel: String
+)
+
+data class TeamList(
+    val list: List<PlayerDetail>?,
+    val captainId: Long
+)
+
+data class ScoringDetail(
+    val phase: String,
+    val time: Time,
+    val type: String,
+    val typeLabel: String,
+    val playerId: Long?
+)
+
+data class Scoring(
+    val Con: List<ScoringDetail>?,
+    val Pen: List<ScoringDetail>?,
+    val Try: List<ScoringDetail>?
+)
+
+data class TeamDetail(
+    val teamList: TeamList,
+    val scoring: Scoring
+)
+
+data class Official(
+    val id: Long,
+    val name: NameDetail
+)
+
+data class OfficialDetail(
+    val official: Official,
+    val position: String
+)
+
+data class WorldRugbyMatchSummaryResponse(
+    val match: Match,
+    val teams: List<TeamDetail>,
+    val officials: List<OfficialDetail>
 )
