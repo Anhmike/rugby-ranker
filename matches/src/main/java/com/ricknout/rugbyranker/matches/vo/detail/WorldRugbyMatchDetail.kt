@@ -2,7 +2,7 @@ package com.ricknout.rugbyranker.matches.vo.detail
 
 import com.ricknout.rugbyranker.matches.vo.detail.official.WorldRugbyOfficial
 import com.ricknout.rugbyranker.matches.vo.detail.player.WorldRugbyPlayer
-import com.ricknout.rugbyranker.matches.vo.detail.timeline.WorldRugbyMatchTimelineEvent
+import com.ricknout.rugbyranker.matches.vo.detail.timeline.WorldRugbyTimelineEvent
 
 data class WorldRugbyMatchDetail(
     val firstTeamCaptainId: Long,
@@ -10,5 +10,5 @@ data class WorldRugbyMatchDetail(
     val secondTeamCaptainId: Long,
     val secondTeamPlayers: List<WorldRugbyPlayer>,
     val officials: List<WorldRugbyOfficial>,
-    val timelineEvents: List<WorldRugbyMatchTimelineEvent>
+    val timelineEvents: List<WorldRugbyTimelineEvent>
 )

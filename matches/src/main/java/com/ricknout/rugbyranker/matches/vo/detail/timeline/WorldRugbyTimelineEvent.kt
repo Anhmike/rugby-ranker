@@ -2,7 +2,7 @@ package com.ricknout.rugbyranker.matches.vo.detail.timeline
 
 import java.util.UUID
 
-data class WorldRugbyMatchTimelineEvent(
+data class WorldRugbyTimelineEvent(
     val id: String,
     val phase: TimelineEventPhase,
     val timeSecs: Long,
